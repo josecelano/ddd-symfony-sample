@@ -8,12 +8,12 @@ use SimpleBus\Event\Handler\EventHandler;
 
 class SendNotificationMailAfterUserWasRegistered implements EventHandler
 {
-    public function __construct(
+    /*public function __construct(
         UserRepository $userRepository
     ) {
         $this->userRepository = $userRepository;
         //$this->userMailer = $userMailer;
-    }
+    }*/
 
     /**
      * @param Event $event
@@ -22,7 +22,7 @@ class SendNotificationMailAfterUserWasRegistered implements EventHandler
     {
         // TODO: implement UserMailer
 
-        $user = $this->userRepository->findByUsername($event->getUsername());
+        //$user = $this->userRepository->findByUsername($event->getUsername());
 
         // send email
         // $this->userMailer->sendWelcomeMailTo($user);
