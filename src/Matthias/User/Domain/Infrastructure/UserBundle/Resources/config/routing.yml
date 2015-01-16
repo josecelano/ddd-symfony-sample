@@ -1,0 +1,3 @@
+matthias_user_domain_infrastructure_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MatthiasUserDomainInfrastructureUserBundle:Default:index }

@@ -1,0 +1,12 @@
+matthias_user_presentation_web_show_registration:
+    path:     /signup
+    defaults: { _controller: MatthiasUserPresentationInfrastructureWebBundle:User:showRegistration }
+
+matthias_user_presentation_web_register:
+    path:     /register
+    defaults: { _controller: MatthiasUserPresentationInfrastructureWebBundle:User:register }
+    requirements: { _method: post }
+
+matthias_user_presentation_web_show_profile:
+    path:     /profile
+    defaults: { _controller: MatthiasUserPresentationInfrastructureWebBundle:User:showProfile }

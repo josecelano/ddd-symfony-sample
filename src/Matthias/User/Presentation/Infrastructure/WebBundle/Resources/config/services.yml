@@ -1,0 +1,7 @@
+parameters:
+#    matthias_user_presentation_web.example.class: Matthias\User\Presentation\WebBundle\Example
+
+services:
+#    matthias_user_presentation_web.example:
+#        class: %matthias_user_presentation_web.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

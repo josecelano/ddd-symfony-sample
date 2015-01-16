@@ -1,0 +1,23 @@
+parameters:
+
+services:
+
+    matthias_user_app_infraestructure_command.event_provider:
+        class: Matthias\User\App\Event\EventProvider
+
+    matthias_user_app_infraestructure_command.register_user_command_handler:
+        class: Matthias\User\App\Command\RegisterUserCommandHandler
+        arguments:
+            - "@matthias_user_app_infraestructure_command.event_provider"
+        tags:
+            - { name: command_handler, handles: register_user }
+
+    matthias_user_app_infraestructure_command.user_was_registered_event_handler:
+        class: Matthias\User\App\Event\UserWasRegisteredEventHandler
+        tags:
+            - { name: event_subscriber, subscribes_to: user_was_registered }
+
+    matthias_user_app_infraestructure_command.notification_mail_event_handler:
+        class: Matthias\User\App\Event\SendNotificationMailAfterUserWasRegistered
+        tags:
+            - { name: event_subscriber, subscribes_to: user_was_registered }
