@@ -1,7 +1,12 @@
-matthias_user_domain_infrastructure_user:
-    resource: "@MatthiasUserDomainInfrastructureUserBundle/Resources/config/routing.yml"
-    prefix:   /
-
 matthias_user_presentation_web:
     resource: "@MatthiasUserPresentationInfrastructureWebBundle/Resources/config/routing.yml"
     prefix:   /user
+
+# redirecting the root
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /user/signup
+        permanent: true
+
