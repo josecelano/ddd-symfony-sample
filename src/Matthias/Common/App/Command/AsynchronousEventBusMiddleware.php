@@ -2,12 +2,23 @@
 
 namespace Matthias\Common\App\Command;
 
-use Matthias\Common\App\Event\IsHandledAsynchronously;
+use Matthias\Common\App\MessageQueue\MessageQueue;
 use SimpleBus\Message\Bus\Middleware\MessageBusMiddleware;
 use SimpleBus\Message\Message;
 
 class AsynchronousEventBusMiddleware implements MessageBusMiddleware
 {
+    /**
+     * @var MessageQueue
+     */
+    private $messageQueue;
+
+    public function __construct(
+        MessageQueue $messageQueue
+    ) {
+        $this->messageQueue = $messageQueue;
+    }
+
     /**
      * The provided $next callable should be called whenever the next middleware should start handling the message.
      * Its only argument should be a Message object (usually the same as the originally provided message).
@@ -23,7 +34,7 @@ class AsynchronousEventBusMiddleware implements MessageBusMiddleware
         if (in_array('Matthias\Common\App\Event\IsHandledAsynchronously', class_implements($message))) {
 
             // handle the message asynchronously using a message queue
-            //$this->messageQueue->add($message);
+            $this->messageQueue->send($message);
 
         } else {
 

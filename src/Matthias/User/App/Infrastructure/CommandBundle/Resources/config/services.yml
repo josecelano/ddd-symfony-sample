@@ -16,6 +16,8 @@ services:
 
     matthias_user_app_infrastructure_command.asynchronous_event_bus_middleware:
         class: Matthias\Common\App\Command\AsynchronousEventBusMiddleware
+        arguments:
+            - "@matthias_common_app_infrastructure_common.message_queue"
         tags:
             - { name: event_bus_middleware, priority: 0 }
 
