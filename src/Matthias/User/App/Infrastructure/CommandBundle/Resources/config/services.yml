@@ -13,3 +13,13 @@ services:
         class: Matthias\User\App\Event\SendNotificationMailAfterUserWasRegistered
         tags:
             - { name: event_subscriber, subscribes_to: Matthias\User\App\Event\UserWasRegisteredEvent }
+
+    matthias_user_app_infrastructure_command.asynchronous_event_bus_middleware:
+        class: Matthias\Common\App\Command\AsynchronousEventBusMiddleware
+        tags:
+            - { name: event_bus_middleware, priority: 0 }
+
+    matthias_user_app_infrastructure_command.asynchronous_command_bus_middleware:
+        class: Matthias\Common\App\Command\AsynchronousCommandBusMiddleware
+        tags:
+            - { name: command_bus_middleware, priority: 0 }
