@@ -2,7 +2,3 @@ parameters:
 
 services:
 
-    matthias_user_app_infrastructure_command.event_recorder:
-        class: Matthias\Common\App\Event\EventRecorder
-        tags:
-            - { name: event_recorder }

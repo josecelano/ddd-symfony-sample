@@ -2,27 +2,27 @@
 
 namespace Matthias\User\App\Command;
 
-use Matthias\Common\App\Event\EventRecorder;
 use Matthias\User\App\Event\UserWasRegisteredEvent;
 use Matthias\User\Domain\User;
 use SimpleBus\Message\Handler\MessageHandler;
 use SimpleBus\Message\Message;
+use SimpleBus\Message\Recorder\RecordsMessages;
 
 class RegisterUserCommandHandler implements MessageHandler
 {
     /**
-     * @var EventRecorder
+     * @var RecordsMessages
      */
-    private $eventRecorder;
+    private $recordsMessages;
 
     public function __construct(
-        EventRecorder $eventRecorder
+        RecordsMessages $recordsMessages
     ) {
-        $this->eventRecorder = $eventRecorder;
+        $this->recordsMessages = $recordsMessages;
     }
 
     /**
-     * @param Command|Message $command
+     * @param Message $command
      */
     public function handle(Message $command)
     {
@@ -37,6 +37,6 @@ class RegisterUserCommandHandler implements MessageHandler
         //$event = new UserWasRegisteredEvent($user->getUsername());
         $event = new UserWasRegisteredEvent('username');
 
-        $this->eventRecorder->record($event);
+        $this->recordsMessages->record($event);
     }
 }

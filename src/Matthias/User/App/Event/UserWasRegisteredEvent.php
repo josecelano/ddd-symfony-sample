@@ -2,9 +2,9 @@
 
 namespace Matthias\User\App\Event;
 
-use SimpleBus\Message\Type\Event;
+use SimpleBus\Message\Message;
 
-class UserWasRegisteredEvent implements Event
+class UserWasRegisteredEvent implements Message
 {
     /**
      * @var integer
