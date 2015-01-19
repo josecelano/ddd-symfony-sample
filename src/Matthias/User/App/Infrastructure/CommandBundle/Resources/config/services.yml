@@ -2,11 +2,6 @@ parameters:
 
 services:
 
-    matthias_user_app_infraestructure_command.event_provider:
-        class: Matthias\User\App\Event\EventProvider
-        tags:
-            - { name: event_provider }
-
     matthias_user_app_infraestructure_command.register_user_command_handler:
         class: Matthias\User\App\Command\RegisterUserCommandHandler
         arguments:

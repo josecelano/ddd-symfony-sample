@@ -2,7 +2,7 @@
 
 namespace Matthias\User\App\Command;
 
-use Matthias\User\App\Event\EventProvider;
+use Matthias\Common\App\Event\EventProvider;
 use Matthias\User\App\Event\UserWasRegisteredEvent;
 use Matthias\User\Domain\User;
 use SimpleBus\Command\Command;

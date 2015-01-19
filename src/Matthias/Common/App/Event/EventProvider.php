@@ -1,6 +1,6 @@
 <?php
 
-namespace Matthias\User\App\Event;
+namespace Matthias\Common\App\Event;
 
 use SimpleBus\Event\Provider\EventProviderCapabilities;
 use SimpleBus\Event\Provider\ProvidesEvents;

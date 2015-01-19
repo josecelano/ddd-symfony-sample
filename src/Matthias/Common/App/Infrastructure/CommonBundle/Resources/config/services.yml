@@ -1,0 +1,8 @@
+parameters:
+
+services:
+
+    matthias_user_app_infraestructure_command.event_provider:
+        class: Matthias\Common\App\Event\EventProvider
+        tags:
+            - { name: event_provider }
