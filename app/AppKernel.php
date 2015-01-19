@@ -21,7 +21,7 @@ class AppKernel extends Kernel
             new Matthias\User\Presentation\Infrastructure\WebBundle\MatthiasUserPresentationInfrastructureWebBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
-            new SimpleBus\SymfonyBridge\DoctrineOrmBridgeBundle(),
+            //new SimpleBus\SymfonyBridge\DoctrineOrmBridgeBundle(),
             new Matthias\Common\App\Infrastructure\CommonBundle\MatthiasCommonAppInfrastructureCommonBundle(),
         );
 

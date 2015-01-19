@@ -2,7 +2,7 @@
 
 namespace Matthias\User\App\Event;
 
-use SimpleBus\Event\Event;
+use SimpleBus\Message\Type\Event;
 
 class UserWasRegisteredEvent implements Event
 {
@@ -25,13 +25,5 @@ class UserWasRegisteredEvent implements Event
     public function getUserId()
     {
         return $this->userId;
-    }
-
-    /**
-     * @return string
-     */
-    public function name()
-    {
-        return 'user_was_registered';
     }
 }

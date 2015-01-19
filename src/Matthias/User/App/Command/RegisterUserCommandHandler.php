@@ -2,30 +2,29 @@
 
 namespace Matthias\User\App\Command;
 
-use Matthias\Common\App\Event\EventProvider;
+use Matthias\Common\App\Event\EventRecorder;
 use Matthias\User\App\Event\UserWasRegisteredEvent;
 use Matthias\User\Domain\User;
-use SimpleBus\Command\Command;
-use SimpleBus\Command\Handler\CommandHandler;
+use SimpleBus\Message\Handler\MessageHandler;
+use SimpleBus\Message\Message;
 
-class RegisterUserCommandHandler implements CommandHandler
+class RegisterUserCommandHandler implements MessageHandler
 {
     /**
-     * @var EventProvider
+     * @var EventRecorder
      */
-    private $eventProvider;
+    private $eventRecorder;
 
     public function __construct(
-        EventProvider $eventProvider
+        EventRecorder $eventRecorder
     ) {
-        $this->eventProvider = $eventProvider;
+        $this->eventRecorder = $eventRecorder;
     }
 
     /**
-     * @param Command $command
-     * @return void
+     * @param Command|Message $command
      */
-    public function handle(Command $command)
+    public function handle(Message $command)
     {
         // TODO: implement DoctrineUserRepository
 
@@ -38,6 +37,6 @@ class RegisterUserCommandHandler implements CommandHandler
         //$event = new UserWasRegisteredEvent($user->getUsername());
         $event = new UserWasRegisteredEvent('username');
 
-        $this->eventProvider->raise($event);
+        $this->eventRecorder->record($event);
     }
 }

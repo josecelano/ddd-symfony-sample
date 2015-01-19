@@ -2,11 +2,10 @@
 
 namespace Matthias\User\App\Event;
 
-use Matthias\User\Domain\Entity\UserRepository;
-use SimpleBus\Event\Event;
-use SimpleBus\Event\Handler\EventHandler;
+use SimpleBus\Message\Subscriber\MessageSubscriber;
+use SimpleBus\Message\Message;
 
-class SendNotificationMailAfterUserWasRegistered implements EventHandler
+class SendNotificationMailAfterUserWasRegistered implements MessageSubscriber
 {
     /*public function __construct(
         UserRepository $userRepository
@@ -16,13 +15,13 @@ class SendNotificationMailAfterUserWasRegistered implements EventHandler
     }*/
 
     /**
-     * @param Event $event
+     * @param Message $message
      */
-    public function handle(Event $event)
+    public function notify(Message $message)
     {
         // TODO: implement UserMailer
 
-        //$user = $this->userRepository->findByUsername($event->getUsername());
+        //$user = $this->userRepository->findByUsername($message->getUsername());
 
         // send email
         // $this->userMailer->sendWelcomeMailTo($user);

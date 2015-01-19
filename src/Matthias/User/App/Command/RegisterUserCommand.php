@@ -2,7 +2,7 @@
 
 namespace Matthias\User\App\Command;
 
-use SimpleBus\Command\Command;
+use SimpleBus\Message\Type\Command;
 
 class RegisterUserCommand implements Command
 {
@@ -56,13 +56,5 @@ class RegisterUserCommand implements Command
     public function setPassword($password)
     {
         $this->password = $password;
-    }
-
-    /**
-     * @return string
-     */
-    public function name()
-    {
-        return 'register_user';
     }
 }
