@@ -8,21 +8,20 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Matthias\User\App\Infrastructure\UserBundle\MatthiasUserAppInfrastructureUserBundle(),
+            new Matthias\User\Domain\Infrastructure\UserBundle\MatthiasUserDomainInfrastructureUserBundle(),
+            new Matthias\User\Presentation\Infrastructure\WebBundle\MatthiasUserPresentationInfrastructureWebBundle(),
+            new Matthias\Common\App\Infrastructure\CommonBundle\MatthiasCommonAppInfrastructureCommonBundle(),
+            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
+            new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Matthias\User\App\Infrastructure\CommandBundle\MatthiasUserAppInfrastructureCommandBundle(),
-            new Matthias\User\Domain\Infrastructure\UserBundle\MatthiasUserDomainInfrastructureUserBundle(),
-            new Matthias\User\Presentation\Infrastructure\WebBundle\MatthiasUserPresentationInfrastructureWebBundle(),
-            new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
-            new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
-            //new SimpleBus\SymfonyBridge\DoctrineOrmBridgeBundle(),
-            new Matthias\Common\App\Infrastructure\CommonBundle\MatthiasCommonAppInfrastructureCommonBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

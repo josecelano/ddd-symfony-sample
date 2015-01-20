@@ -2,26 +2,26 @@ parameters:
 
 services:
 
-    matthias_user_app_infrastructure_command.register_user_command_handler:
+    matthias_user_app_infrastructure_user.register_user_command_handler:
         class: Matthias\User\App\Command\RegisterUserCommandHandler
         arguments:
             - "@event_recorder"
         tags:
             - { name: command_handler, handles: Matthias\User\App\Command\RegisterUserCommand }
 
-    matthias_user_app_infrastructure_command.notification_mail_event_handler:
+    matthias_user_app_infrastructure_user.notification_mail_event_handler:
         class: Matthias\User\App\Event\SendNotificationMailAfterUserWasRegistered
         tags:
             - { name: event_subscriber, subscribes_to: Matthias\User\App\Event\UserWasRegisteredEvent }
 
-    matthias_user_app_infrastructure_command.asynchronous_event_bus_middleware:
+    matthias_user_app_infrastructure_user.asynchronous_event_bus_middleware:
         class: Matthias\Common\App\Command\AsynchronousEventBusMiddleware
         arguments:
             - "@matthias_common_app_infrastructure_common.message_queue"
         tags:
             - { name: event_bus_middleware, priority: 0 }
 
-    matthias_user_app_infrastructure_command.asynchronous_command_bus_middleware:
+    matthias_user_app_infrastructure_user.asynchronous_command_bus_middleware:
         class: Matthias\Common\App\Command\AsynchronousCommandBusMiddleware
         tags:
             - { name: command_bus_middleware, priority: 0 }
