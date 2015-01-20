@@ -18,3 +18,10 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # stomp message queue
+    stomp_host: 127.0.0.1
+    stomp_port: 61613
+    stomp_default_queue: /queue/foo
+    stomp_user: admin
+    stomp_password: adminPassword

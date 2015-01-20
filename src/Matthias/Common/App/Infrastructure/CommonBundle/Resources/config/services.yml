@@ -5,8 +5,8 @@ services:
     matthias_common_app_infrastructure_common.message_queue:
       class: Matthias\Common\App\MessageQueue\StompMessageQueue
       arguments:
-        - "123.123.123.123"
-        - "61613"
-        - "/queue/foo"
-        - "admin"
-        - "secretPassword"
+        - "%stomp_host%"
+        - "%stomp_port%"
+        - "%stomp_default_queue%"
+        - "%stomp_user%"
+        - "%stomp_password%"
