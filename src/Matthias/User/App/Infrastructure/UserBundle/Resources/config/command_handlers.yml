@@ -1,0 +1,11 @@
+parameters:
+
+services:
+    matthias_user_app_infrastructure_user.register_user_command_handler:
+        class: Matthias\User\App\Command\RegisterUserCommandHandler
+        arguments:
+            - "@event_recorder"
+        tags:
+            - { name: command_handler, handles: Matthias\User\App\Command\RegisterUserCommand }
+
+

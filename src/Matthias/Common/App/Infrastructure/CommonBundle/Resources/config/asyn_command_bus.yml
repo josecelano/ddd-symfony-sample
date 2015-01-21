@@ -1,0 +1,51 @@
+services:
+    asyn_command_bus:
+        alias: matthias_common_app_infrastructure_common_bundle.asyn_command_bus
+
+    matthias_common_app_infrastructure_common_bundle.asyn_command_bus:
+        class: SimpleBus\Message\Bus\Middleware\MessageBusSupportingMiddleware
+        public: false
+
+    matthias_common_app_infrastructure_common_bundle.asyn_command_bus.delegates_to_message_handler_middleware:
+        class: SimpleBus\Message\Handler\DelegatesToMessageHandlerMiddleware
+        public: false
+        arguments:
+            - @matthias_common_app_infrastructure_common_bundle.asyn_command_bus.command_handler_resolver
+        tags:
+            - { name: command_bus_middleware, priority: -1000 }
+
+    matthias_common_app_infrastructure_common_bundle.asyn_command_bus.class_based_command_name_resolver:
+        class: SimpleBus\Message\Name\ClassBasedNameResolver
+        public: false
+
+    matthias_common_app_infrastructure_common_bundle.asyn_command_bus.named_message_command_name_resolver:
+        class: SimpleBus\Message\Name\NamedMessageNameResolver
+        public: false
+
+    matthias_common_app_infrastructure_common_bundle.asyn_command_bus.command_handler_map:
+        class: SimpleBus\Message\Handler\Map\LazyLoadingMessageHandlerMap
+        public: false
+        arguments:
+            # collection of command handler service ids, will be provided by the RegisterHandlers compiler pass
+            - []
+            - @matthias_common_app_infrastructure_common_bundle.asyn_command_bus.invokable_service_locator
+
+    matthias_common_app_infrastructure_common_bundle.asyn_command_bus.command_handler_resolver:
+        class: SimpleBus\Message\Handler\Resolver\NameBasedMessageHandlerResolver
+        public: false
+        arguments:
+#            - @matthias_common_app_infrastructure_common_bundle.asyn_command_bus.command_name_resolver
+            - @matthias_common_app_infrastructure_common_bundle.asyn_command_bus.class_based_command_name_resolver
+            - @matthias_common_app_infrastructure_common_bundle.asyn_command_bus.command_handler_map
+
+    matthias_common_app_infrastructure_common_bundle.asyn_command_bus.invokable_service_locator:
+        class: SimpleBus\SymfonyBridge\DependencyInjection\InvokableServiceLocator
+        public: false
+        arguments:
+            - @service_container
+
+    matthias_common_app_infrastructure_common_bundle.asyn_command_bus.finishes_command_before_handling_next_middleware:
+        class: SimpleBus\Message\Bus\Middleware\FinishesHandlingMessageBeforeHandlingNext
+        public: false
+        tags:
+            - { name: command_bus_middleware, priority: 1000 }

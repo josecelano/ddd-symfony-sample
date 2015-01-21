@@ -19,7 +19,9 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "simple-bus/symfony-bridge": "dev-master"
+        "simple-bus/symfony-bridge": "dev-master",
+        "symfony/serializer": "~2.6",
+        "fusesource/stomp-php": "~2.1"
     },
     "scripts": {
         "post-install-cmd": [

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4fa5ce3d9e258de37c25489d9d88e95e",
+    "hash": "f306b2a5fcaa6108bd42d18753a55568",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -667,6 +667,55 @@
                 "orm"
             ],
             "time": "2014-12-16 13:45:01"
+        },
+        {
+            "name": "fusesource/stomp-php",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dejanb/stomp-php.git",
+                "reference": "4ac51c0abee05078e198faf13f48c056a72f8f8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dejanb/stomp-php/zipball/4ac51c0abee05078e198faf13f48c056a72f8f8c",
+                "reference": "4ac51c0abee05078e198faf13f48c056a72f8f8c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FuseSource": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Dejan Bosnanac",
+                    "email": "dejan@nighttale.net",
+                    "homepage": "http://www.nighttale.net"
+                },
+                {
+                    "name": "Sören Rohweder",
+                    "email": "s.rohweder@blage.net",
+                    "homepage": "http://www.monofone.de"
+                }
+            ],
+            "description": "stomp support for PHP",
+            "homepage": "http://github.com/dejanb/stomp-php",
+            "keywords": [
+                "activeMQ",
+                "jms",
+                "messaging",
+                "stomp"
+            ],
+            "time": "2013-02-23 17:34:44"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1382,6 +1431,53 @@
                 "logging"
             ],
             "time": "2013-05-27 18:06:55"
+        },
+        {
+            "name": "symfony/serializer",
+            "version": "v2.6.3",
+            "target-dir": "Symfony/Component/Serializer",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Serializer.git",
+                "reference": "b147d408f7121b3f3b8f76d37f0e0e42abed7cc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Serializer/zipball/b147d408f7121b3f3b8f76d37f0e0e42abed7cc4",
+                "reference": "b147d408f7121b3f3b8f76d37f0e0e42abed7cc4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Serializer\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Serializer Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-01-03 08:01:59"
         },
         {
             "name": "symfony/swiftmailer-bundle",

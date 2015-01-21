@@ -1,19 +1,6 @@
 parameters:
 
 services:
-
-    matthias_user_app_infrastructure_user.register_user_command_handler:
-        class: Matthias\User\App\Command\RegisterUserCommandHandler
-        arguments:
-            - "@event_recorder"
-        tags:
-            - { name: command_handler, handles: Matthias\User\App\Command\RegisterUserCommand }
-
-    matthias_user_app_infrastructure_user.notification_mail_event_handler:
-        class: Matthias\User\App\Event\SendNotificationMailAfterUserWasRegistered
-        tags:
-            - { name: event_subscriber, subscribes_to: Matthias\User\App\Event\UserWasRegisteredEvent }
-
     matthias_user_app_infrastructure_user.asynchronous_event_bus_middleware:
         class: Matthias\Common\App\Command\AsynchronousEventBusMiddleware
         arguments:
@@ -25,3 +12,7 @@ services:
         class: Matthias\Common\App\Command\AsynchronousCommandBusMiddleware
         tags:
             - { name: command_bus_middleware, priority: 0 }
+
+imports:
+- { resource: command_handlers.yml }
+- { resource: event_subscribers.yml }

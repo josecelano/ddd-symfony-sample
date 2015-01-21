@@ -34,7 +34,7 @@ class AsynchronousEventBusMiddleware implements MessageBusMiddleware
         if (in_array('Matthias\Common\App\Event\IsHandledAsynchronously', class_implements($message))) {
 
             // handle the message asynchronously using a message queue
-            $this->messageQueue->send($message);
+            $this->messageQueue->publish($message);
 
         } else {
 

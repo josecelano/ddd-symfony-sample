@@ -1,6 +1,7 @@
 <?php
 
 namespace Matthias\Common\App\MessageQueue;
+
 use SimpleBus\Message\Message;
 
 /**
@@ -11,5 +12,10 @@ interface MessageQueue
     /**
      * @param Message $message
      */
-    public function send(Message $message);
+    public function publish(Message $message);
+
+    /**
+     * @return Message $message
+     */
+    public function consume();
 }

@@ -1,0 +1,7 @@
+parameters:
+
+services:
+    matthias_user_app_infrastructure_user.notification_mail_event_handler:
+        class: Matthias\User\App\Event\SendNotificationMailAfterUserWasRegistered
+        tags:
+            - { name: event_subscriber, subscribes_to: Matthias\User\App\Event\UserWasRegisteredEvent }

@@ -36,6 +36,25 @@ Symfony standard installation.
 
 - Where to put validation: command, domain service, repository?
 
+## Usage
+
+On order to test Matthias Noback message bus sample using asynchronous events bus must run this Symfony command to pull events from the message queue:
+
+´´´´
+php app/console matthias:user:asyn-event-subscriber
+´´´´
+
+Stomp message queue parameter are defined in ´´´´parameters.yml´´´´
+
+´´´´
+    # stomp message queue
+    stomp_host: 127.0.0.1
+    stomp_port: 61613
+    stomp_default_queue: /queue/foo
+    stomp_user: admin
+    stomp_password: adminPassword
+´´´´    
+
 ## References
 
 ### Other DDD Symfony sample applications

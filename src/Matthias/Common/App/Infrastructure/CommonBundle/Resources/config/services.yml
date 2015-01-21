@@ -10,3 +10,15 @@ services:
         - "%stomp_default_queue%"
         - "%stomp_user%"
         - "%stomp_password%"
+        - "@matthias_common_app_infrastructure_common.serializer"
+
+    matthias_common_app_infrastructure_common.serializer:
+      class: Matthias\Common\App\Infrastructure\CommonBundle\Serializer\SymfonySerializer
+      arguments:
+        - "@serializer"
+
+imports:
+- { resource: asyn_command_bus.yml }
+- { resource: asyn_event_bus.yml }
+- { resource: command_handlers.yml }
+- { resource: event_subscribers.yml }
