@@ -1,7 +1,0 @@
-parameters:
-
-services:
-    matthias_common_app_infrastructure_common_bundle.is_handle_asynchronously_sample_event_handler:
-        class: Matthias\Common\App\Event\IsHandleAsynchronouslySampleEventHandler
-        tags:
-            - { name: event_subscriber, subscribes_to: Matthias\Common\App\Event\IsHandleAsynchronouslySampleEvent }

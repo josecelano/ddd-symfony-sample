@@ -9,10 +9,12 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Matthias\Common\App\Infrastructure\AsynchronousBusBundle\AsynchronousBusCommandBusBundle(),
+            new Matthias\Common\App\Infrastructure\AsynchronousBusBundle\AsynchronousBusEventBusBundle(),
+            new Matthias\Common\App\Infrastructure\CommonBundle\MatthiasCommonAppInfrastructureCommonBundle(),
             new Matthias\User\App\Infrastructure\UserBundle\MatthiasUserAppInfrastructureUserBundle(),
             new Matthias\User\Domain\Infrastructure\UserBundle\MatthiasUserDomainInfrastructureUserBundle(),
             new Matthias\User\Presentation\Infrastructure\WebBundle\MatthiasUserPresentationInfrastructureWebBundle(),
-            new Matthias\Common\App\Infrastructure\CommonBundle\MatthiasCommonAppInfrastructureCommonBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
             new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),

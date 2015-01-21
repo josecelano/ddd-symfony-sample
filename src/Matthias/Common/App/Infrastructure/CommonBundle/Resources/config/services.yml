@@ -17,8 +17,14 @@ services:
       arguments:
         - "@serializer"
 
-imports:
-- { resource: asyn_command_bus.yml }
-- { resource: asyn_event_bus.yml }
-- { resource: command_handlers.yml }
-- { resource: event_subscribers.yml }
+    matthias_user_app_infrastructure_common.asynchronous_event_bus_middleware:
+        class: Matthias\Common\App\Command\AsynchronousEventBusMiddleware
+        arguments:
+            - "@matthias_common_app_infrastructure_common.message_queue"
+        tags:
+            - { name: event_bus_middleware, priority: 0 }
+
+    matthias_user_app_infrastructure_common.asynchronous_command_bus_middleware:
+        class: Matthias\Common\App\Command\AsynchronousCommandBusMiddleware
+        tags:
+            - { name: command_bus_middleware, priority: 0 }

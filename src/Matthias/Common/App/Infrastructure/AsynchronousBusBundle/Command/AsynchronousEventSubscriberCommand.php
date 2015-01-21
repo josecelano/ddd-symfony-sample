@@ -1,14 +1,13 @@
 <?php
 
 
-namespace Matthias\User\App\Infrastructure\UserBundle\Command;
+namespace Matthias\Common\App\Infrastructure\AsynchronousBusBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class AsynchronousEventSubscriberCommand extends ContainerAwareCommand
 {
@@ -25,8 +24,8 @@ class AsynchronousEventSubscriberCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('matthias:user:asyn-event-subscriber')
-            ->setDescription('Asynchronous event subscriber. It obtains events from message queue.')
+            ->setName('matthias:asyn-bus:asyn-event-subscriber')
+            ->setDescription('Asynchronous event subscriber. It obtains events from message queue and inject them in the asynchronous event bus.')
             /*->setDefinition(array(
             		new InputArgument('username', InputArgument::REQUIRED, 'The username'),
             		new InputArgument('password', InputArgument::REQUIRED, 'The password'),
@@ -38,9 +37,9 @@ class AsynchronousEventSubscriberCommand extends ContainerAwareCommand
             		'If set, the task will be run in debug mode'
             )                        
             ->setHelp(<<<EOT
-The <info>matthias:user:asyn-event-subscriber</info> command pulls events from a message queue:
+The <info>matthias:asyn-bus:asyn-event-subscriber</info> command pulls events from a message queue:
 
-  <info>php app/console matthias:user:asyn-event-subscriber --debug</info>
+  <info>php app/console matthias:asyn-bus:asyn-event-subscriber --debug</info>
 EOT
             );
     }
@@ -68,8 +67,8 @@ EOT
 		/** @var \Matthias\Common\App\MessageQueue\MessageQueue $messageQueue */
 		$messageQueue = $this->getContainer()->get('matthias_common_app_infrastructure_common.message_queue');
 
-        /** @var \SimpleBus\Message\Bus\MessageBus $asynEventBus */
-        $asynEventBus = $this->getContainer()->get('asyn_event_bus');
+        /** @var \SimpleBus\Message\Bus\MessageBus $asynchronousEventBus */
+        $asynchronousEventBus = $this->getContainer()->get('asynchronous_event_bus');
 		
     	// crontab min interval is 1 minute. In order to pull API more often the same command execution
     	// will be running until the next command will be executed.
@@ -85,7 +84,7 @@ EOT
 
                 $output->writeln(sprintf('Message: %s', var_export($message,true)));
 
-                $asynEventBus->handle($message);
+                $asynchronousEventBus->handle($message);
             }
 
 	    	$output->writeln(sprintf('End iter %s', (string)$iter-1));
