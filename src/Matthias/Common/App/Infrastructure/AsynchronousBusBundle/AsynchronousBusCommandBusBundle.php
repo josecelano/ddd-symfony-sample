@@ -29,7 +29,7 @@ class AsynchronousBusCommandBusBundle extends Bundle
         $container->addCompilerPass(
             new RegisterHandlers(
                 'asynchronous_bus.asynchronous_command_bus.command_handler_map',
-                'command_handler',
+                'asynchronous_command_handler',
                 'handles'
             )
         );

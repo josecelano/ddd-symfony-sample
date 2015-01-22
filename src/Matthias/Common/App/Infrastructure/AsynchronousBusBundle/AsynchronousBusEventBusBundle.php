@@ -34,14 +34,14 @@ class AsynchronousBusEventBusBundle extends Bundle
         $container->addCompilerPass(
             new RegisterMessageRecorders(
                 'asynchronous_bus.asynchronous_event_bus.aggregates_recorded_messages',
-                'event_recorder'
+                'asynchronous_event_recorder'
             )
         );
 
         $container->addCompilerPass(
             new RegisterSubscribers(
                 'asynchronous_bus.asynchronous_event_bus.event_subscribers_collection',
-                'event_subscriber',
+                'asynchronous_event_subscriber',
                 'subscribes_to'
             )
         );

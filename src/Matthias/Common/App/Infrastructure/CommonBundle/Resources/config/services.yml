@@ -28,3 +28,8 @@ services:
         class: Matthias\Common\App\Command\AsynchronousCommandBusMiddleware
         tags:
             - { name: command_bus_middleware, priority: 0 }
+
+    matthias_user_app_infrastructure_common.is_handle_asynchronously_sample_event_handler:
+        class: Matthias\Common\App\Event\IsHandleAsynchronouslySampleEventHandler
+        tags:
+            - { name: asynchronous_event_subscriber, subscribes_to: Matthias\Common\App\Event\IsHandleAsynchronouslySampleEvent }

@@ -20,9 +20,5 @@ class IsHandleAsynchronouslySampleEventHandler implements MessageSubscriber
     public function notify(Message $message)
     {
         // TODO: do something
-
-        // DEBUG
-        var_dump($message);
-
     }
 }
