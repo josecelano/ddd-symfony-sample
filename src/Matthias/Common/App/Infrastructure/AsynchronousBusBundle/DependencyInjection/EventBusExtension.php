@@ -2,10 +2,11 @@
 
 namespace Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use SimpleBus\SymfonyBridge\DependencyInjection\EventBusConfiguration;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 class EventBusExtension extends ConfigurableExtension
 {

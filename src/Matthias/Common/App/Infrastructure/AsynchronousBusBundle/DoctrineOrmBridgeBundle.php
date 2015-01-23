@@ -3,6 +3,7 @@
 namespace Matthias\Common\App\Infrastructure\AsynchronousBusBundle;
 
 use Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection\DoctrineOrmBridgeExtension;
+use SimpleBus\SymfonyBridge\RequiresOtherBundles;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

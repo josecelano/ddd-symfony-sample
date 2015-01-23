@@ -3,8 +3,8 @@
 namespace Matthias\Common\App\Infrastructure\AsynchronousBusBundle;
 
 use Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection\CommandBusExtension;
-use Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection\Compiler\ConfigureMiddlewares;
-use Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection\Compiler\RegisterHandlers;
+use SimpleBus\SymfonyBridge\DependencyInjection\Compiler\ConfigureMiddlewares;
+use SimpleBus\SymfonyBridge\DependencyInjection\Compiler\RegisterHandlers;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

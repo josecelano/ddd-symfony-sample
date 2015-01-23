@@ -2,10 +2,12 @@
 
 namespace Matthias\Common\App\Infrastructure\AsynchronousBusBundle;
 
-use Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection\Compiler\ConfigureMiddlewares;
-use Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection\Compiler\RegisterMessageRecorders;
-use Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection\Compiler\RegisterSubscribers;
 use Matthias\Common\App\Infrastructure\AsynchronousBusBundle\DependencyInjection\EventBusExtension;
+use SimpleBus\SymfonyBridge\DependencyInjection\Compiler\ConfigureMiddlewares;
+use SimpleBus\SymfonyBridge\DependencyInjection\Compiler\RegisterMessageRecorders;
+use SimpleBus\SymfonyBridge\DependencyInjection\Compiler\RegisterSubscribers;
+
+use SimpleBus\SymfonyBridge\RequiresOtherBundles;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
